@@ -1,3 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CitizenFX.Core;
+using static CitizenFX.Core.Native.API;
+using System.Collections;
 
 namespace RullTerning
 {
@@ -11,6 +19,7 @@ namespace RullTerning
                 var numOfDices = "1";
                 List<String> results = new List<String>();
                 Random rand = new Random();
+                int total = 0;
 
 
                 if (args.Count > 0)
@@ -32,6 +41,7 @@ namespace RullTerning
                 {
                     
                     builder.Append(diceResult).Append(" | ");
+                    total += Int16.Parse(diceResult);
                 }
 
 
@@ -40,7 +50,7 @@ namespace RullTerning
                 TriggerEvent("chat:addMessage", new
                 {
                     color = new[] { 255, 0, 0 },
-                    args = new[] { "[Terning Rull]", $"{diceResults}" }
+                    args = new[] { "[Terning Rull]", $"{diceResults} = {total}" }
                 });
             }), false);
         }
