@@ -50,7 +50,7 @@ namespace RullTerning
                 TriggerEvent("chat:addMessage", new
                 {
                     color = new[] { 255, 0, 0 },
-                    args = new[] { "[Terning Rull]", $"{diceResults} = {total}" }
+                    args = new[] { "[Terning Rull]", $"{diceResults} = {total}" } //resultat for hver terning (yatzi etc..) eller total for (nærmest nummeret etc..)
                 });
             }), false);
         }
